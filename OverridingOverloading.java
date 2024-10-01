@@ -39,6 +39,10 @@ public class OverridingOverloading {
 
         Foo o = new Foo();
 
+        // Knowing exactly which method is called when the argument's static type is not
+        // the same as dynamic type,
+        // and when dealing with a) superclasses of the same level and b) superclasses
+        // of varying levels
         bar1(k);
         bar1(l);
         bar1(m);

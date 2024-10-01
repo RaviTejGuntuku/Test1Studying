@@ -96,6 +96,9 @@ public class Polymorphism {
         System.out.println();
         System.out.println();
 
+        // Think about "this" v. "super" keyword behavior in polymorphism ... why does
+        // this happen?
+        // Hint: Think about VERSIONING (later v. earlier version)
         child.testAction();
         System.out.println();
         parent.testAction();

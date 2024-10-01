@@ -12,6 +12,21 @@ interface Life {
     };
 }
 
+interface Animal {
+    void breath();
+
+    int id = 1;
+
+    static void cells() {
+        System.out.println("I have cells, the building blocks of life");
+    }
+
+    default void processNutrients() {
+        System.out.println("I use my cells");
+    };
+}
+
+// implementing Animal here is NOT allowed: why do you think so?
 class Person implements Life {
 
     int id = 2;
@@ -20,9 +35,6 @@ class Person implements Life {
         System.out.println("I breathe through my mouth");
     }
 
-    public void processNutrients() {
-
-    }
 }
 
 interface O {
@@ -58,6 +70,10 @@ class C implements A, B {
 
 public class AbstractClassesInterfaces {
     public static void main(String[] args) {
+
+        // As shown in the commented code below, you can actually supply methods to
+        // construct an abstract class
+
         // Life l = new Person() {
         // public void breath() {
         // System.out.println("Breathing");
