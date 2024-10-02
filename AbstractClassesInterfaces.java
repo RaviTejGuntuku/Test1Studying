@@ -15,7 +15,7 @@ interface Life {
 interface Animal {
     void breath();
 
-    int id = 1;
+    int dichotomous_level = 6;
 
     static void cells() {
         System.out.println("I have cells, the building blocks of life");
@@ -26,8 +26,36 @@ interface Animal {
     };
 }
 
-// implementing Animal here is NOT allowed: why do you think so?
-class Person implements Life {
+// Causes issues if I uncomment Integer breath(); why?
+interface Mammal {
+
+    int dichotomous_level = 3;
+
+    // Integer breath();
+}
+
+abstract class Animal2 {
+    abstract void breath();
+
+    int dichotomous_level = 7;
+
+    int id = 1;
+
+    static void cells() {
+        System.out.println("I have cells, the building blocks of life");
+    }
+
+    public void processNutrients() {
+        System.out.println("I use my cells");
+    };
+}
+
+// implementing conflicting default interface methods is NOT allowed UNLESS
+// there is already a method that overrides the default methods in execution
+
+// Think: what is the output here, though? (hint: subclasses automatically
+// inherit, and thus, implement, superclass methods)
+class Person extends Animal2 implements Life, Mammal, Animal {
 
     int id = 2;
 
@@ -97,6 +125,14 @@ public class AbstractClassesInterfaces {
         System.out.println(Life.id);
 
         foo(l);
+
+        l.processNutrients();
+
+        Person p = new Person();
+        p.breath();
+
+        System.out.println();
+        p.processNutrients();
 
         // foo(a);
 
