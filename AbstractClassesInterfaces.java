@@ -50,6 +50,16 @@ abstract class Animal2 {
     };
 }
 
+class Obj {
+    public void initializeMe() {
+        System.out.println("Obj initialized");
+    }
+}
+
+abstract class E extends Obj {
+
+}
+
 // implementing conflicting default interface methods is NOT allowed UNLESS
 // there is already a method that overrides the default methods in execution
 
@@ -115,6 +125,13 @@ public class AbstractClassesInterfaces {
         Life l = new Person();
 
         C a = new C();
+
+        // This is how you can "instantiate" an abstract class
+        E b = new E() {
+        };
+
+        // Executing an abstract class
+        b.initializeMe();
 
         a.eat();
 
