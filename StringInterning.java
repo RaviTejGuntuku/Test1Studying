@@ -28,7 +28,14 @@ public class StringInterning {
 
         System.out.println();
 
-        // What do these methods below output?
+        // What do these comparisons below output?
+        String n1 = "hel";
+        String n2 = "lo";
+
+        String n3 = n1 + n2;
+
+        System.out.println(n3 == s1);
+
         String int1 = Integer.toString(5);
         String int2 = Integer.toString(5);
         System.out.println(int1 == int2);
