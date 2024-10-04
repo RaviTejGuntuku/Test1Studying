@@ -81,6 +81,7 @@ public class Polymorphism {
         Grandparent parent = new Parent();
         Parent child = new Child();
         Grandparent grandparent = new Child();
+        Child child2 = new Child();
 
         System.out.println(child.getClass()); // class Child (ACTUAL RUNTIME CLASS)
         System.out.println(parent.getClass()); // class Parent (ACTUAL RUNTIME CLASS)
@@ -104,6 +105,8 @@ public class Polymorphism {
         parent.testAction();
         System.out.println();
         grandparent.testAction();
+        System.out.println();
+        child2.testAction();
         System.out.println();
 
         Snow var5 = new Rain();

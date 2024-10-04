@@ -1,6 +1,9 @@
 interface Life {
     void breath();
 
+    // Why is it static and final (static = no object associated with it, and final
+    // so that interfaces focus only on establishing a contract as to what a class
+    // should execute, as opposed to STORING STATE)
     int id = 1;
 
     static void cells() {
@@ -10,6 +13,30 @@ interface Life {
     default void processNutrients() {
         System.out.println("Life");
     };
+}
+
+class Foo {
+}
+
+class Bar extends Foo {
+}
+
+interface ParentInterface {
+    Foo method1();
+}
+
+class Parent implements ParentInterface {
+    public Foo method1() {
+        return new Foo();
+    }
+}
+
+class Child extends Parent {
+
+    public Bar method1() {
+        // implement for the case when Bar is expected
+        return new Bar();
+    }
 }
 
 interface Animal {
@@ -67,7 +94,7 @@ abstract class E extends Obj {
 // inherit, and thus, implement, superclass methods)
 class Person extends Animal2 implements Life, Mammal, Animal {
 
-    int id = 2;
+    // int id = 2;
 
     public void breath() {
         System.out.println("I breathe through my mouth");
@@ -147,6 +174,9 @@ public class AbstractClassesInterfaces {
 
         Person p = new Person();
         p.breath();
+
+        // Ambiguous
+        // System.out.println(p.id);
 
         System.out.println();
         p.processNutrients();

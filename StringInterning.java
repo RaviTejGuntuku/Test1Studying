@@ -26,6 +26,10 @@ public class StringInterning {
         System.out.println(s1 == s2);
         System.out.println(s1 == s3);
 
+        String s4 = "hel" + "lo";
+
+        System.out.println(s1 == s4);
+
         System.out.println();
 
         // What do these comparisons below output?
@@ -53,7 +57,7 @@ public class StringInterning {
         String newHello = firstPart + secondPart;
         System.out.println(newHello == s1);
 
-        newHello = returnPart1() + returnPart1();
+        newHello = returnPart1() + returnPart2();
         System.out.println(newHello == s1);
 
         StringStorage s = new StringStorage("h", "ello");
